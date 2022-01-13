@@ -1,0 +1,73 @@
+// ----------------------------------------------------------------
+// フッター
+// ----------------------------------------------------------------
+.footer {
+  padding: 40px 20px 20px;
+  background-image: url(./assets/img/common/bg-footer.png);
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: 100%;
+  text-align: center;
+  overflow: hidden;
+  .footer-info {
+    img {
+      width: 90%;
+      max-width: 250px;
+    }
+  }
+  .footer-menu {
+    margin-top: 45px;
+    .menu {
+      li {
+        margin: 0.7em 0;
+      }
+      a {
+        font-size: 1.4rem;
+        &:link, &:visited {
+          color: $c-white;
+          text-decoration: none;
+        }
+        &:hover, &:active {
+          opacity: 0.7;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .copyright {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: $c-white;
+    white-space: nowrap;
+  }
+}
+@include res_min() {
+  .footer {
+    padding: 55px 0;
+    .footer-info {
+      img {
+        max-width: 484px;
+      }
+    }
+    .footer-menu {
+      margin-top: 70px;
+      .menu {
+        @include flex(wrap, center, center);
+        li {
+          margin: 0 20px;
+          line-height: 1;
+        }
+        a {
+          font-size: 1.6rem;
+        }
+      }
+    }
+    .copyright {
+      margin-top: 70px;
+      font-size: 1.2rem;
+      br {
+        display: none;
+      }
+    }
+  }
+}

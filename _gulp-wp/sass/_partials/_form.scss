@@ -1,0 +1,511 @@
+// ----------------------------------------------------------------
+// 共通
+// ----------------------------------------------------------------
+
+// ie11のinputに出る×印を消す
+input[type=text]::-ms-clear {
+  display: none;
+}
+input[type=password]::-ms-reveal {
+  display: none;
+}
+// iOSでinputが角丸になるのを防止
+input[type="button"],
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="submit"],
+textarea {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+//プレースホルダーの色
+$phcolor: #999999;
+$phweight: 300;
+:placeholder-shown {
+  color: $phcolor !important;
+  font-weight: $phweight !important;
+}
+// Google Chrome, Safari, Opera 15+, Android, iOS
+::-webkit-input-placeholder {
+  color: $phcolor !important;
+  font-weight: $phweight !important;
+}
+// Firefox 18-
+:-moz-placeholder {
+  color: $phcolor !important;
+  font-weight: $phweight !important;
+  opacity: 1;
+}
+// Firefox 19+
+::-moz-placeholder {
+  color: $phcolor !important;
+  font-weight: $phweight !important;
+  opacity: 1;
+}
+// IE 10+
+:-ms-input-placeholder {
+  color: $phcolor !important;
+  font-weight: $phweight !important;
+}
+
+//基本設定
+form {
+  padding: 0;
+  margin: 0;
+  p { margin: 0; }
+}
+label {}
+input:not([type="checkbox"]),
+input:not([type="radio"]),
+select,
+textarea {
+  box-sizing: border-box;
+  font-size: inherit;
+  padding: 4px 8px;
+  border: 1px solid #d6d4d3;
+  &:focus {
+    outline: none;
+  }
+}
+textarea {
+  height: 174px;
+}
+//セレクトボックス初期化・カスタマイズ
+select {
+  appearance: none;
+  position: relative;
+  &-ms-expand {
+    display: none;
+  }
+}
+//セレクトボックスに下矢印をつけるカスタマイズ
+.form-item-select {
+  position: relative;
+  select {
+    padding-right: 40px;
+    background-color: $c-white;
+  }
+  &::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top-color: #866239;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(calc(-50% + 4px));
+    z-index: 999;
+    pointer-events: none;
+    cursor: pointer;
+  }
+}
+@include res_min() {
+  .form-item-select {
+    width: 50%;
+    .sizeM {
+      width: 100%;
+    }
+  }
+}
+
+
+// サイト別設定 -----------------------------
+
+.form-area {}
+
+.form-hl {
+  &:not(:first-of-type) { margin-top: 2em; }
+  padding-bottom: 6px;
+  font-size: 2.4rem;
+  font-weight: 500;
+  border-bottom: 2px solid #ddc9b4;
+  & > span + br {
+    display: none;
+  }
+}
+@include res_min() {
+  .form-hl {
+    &:not(:first-of-type) { margin-top: 40px; }
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    font-size: 3.2rem;
+  }
+}
+
+// ラベル + input のブロック
+.form-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #ddc9b4;
+  // ラベル
+  .item-label {
+    padding: 12px 1em;
+    font-size: 1.6rem;
+    background-color: #f9f5f0;
+    // 必須, 任意
+    .req, .any {
+      margin-left: 1em;
+      padding: 4px 5px;
+      font-size: 1.2rem;
+      line-height: 1;
+      white-space: nowrap;
+      color: $c-white;
+      position: relative;
+      bottom: 2px;
+    }
+    .req {
+      background-color: #ff0000;
+    }
+  }
+  // input
+  .item-input {
+    margin-top: 10px;
+    p, div {
+      &:not(:last-of-type) {
+        margin-bottom: 0.5em;
+      }
+    }
+    // 横並びにする
+    .inline-item {
+      @include flex(nowrap, flex-start, center);
+      small {
+        font-size: 90%;
+        white-space: nowrap;
+        & + span {
+          margin-left: 0.8em;
+        }
+      }
+      span + small {
+        margin: 0 0.8em;
+      }
+    }
+  }
+  //記入例,　プレースホルダー
+  .form-item-placeholder {
+    margin: 6px 0;
+    color: #999999;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  //注意書きなどテキスト
+  .form-item-txt {
+    margin: 8px 0;
+  }
+}
+@include res_min() {
+  .form-item {
+    margin-top: -1px;
+    padding: 0;
+    border-top: 1px solid #ddc9b4;
+    @include flex(nowrap, flex-start, stretch);
+    // ラベル
+    .item-label {
+      flex: 0 0 250px;
+      padding: 25px 15px;
+      @include flex(nowrap, center, center);
+      // 必須, 任意
+      .req, .any { font-size: 1.3rem; }
+    }
+    // input
+    .item-input {
+      flex-basis: calc(100% - 250px);
+      margin-top: 0;
+      padding: 18px;
+      p, div {
+        &:not(:last-of-type) { margin-bottom: 1em; }
+      }
+      .wpcf7-radio {
+        display: inline-flex;
+        align-items: center;
+        height: 100%;
+      }
+      // 横並びにする
+      .inline-item {
+        small { font-size: 1em; }
+      }
+    }
+    //記入例,　プレースホルダー
+    .form-item-placeholder {
+      margin: 6px 0;
+      color: #999999;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    //注意書きなどテキスト
+    .form-item-txt {
+      margin: 8px 0;
+    }
+  }
+}
+
+//ラジオボタン, チェックボックス
+.wpcf7-radio .wpcf7-list-item {
+  margin: 0.8em 2em 0 1em;
+  label {
+    width: auto;
+    input {
+      width: auto;
+      margin-right: 0.3em;
+    }
+    span {}
+  }
+}
+@include res_min() {
+  .wpcf7-radio .wpcf7-list-item {
+    margin: 0 2em 0 0.5em;
+    label {
+      vertical-align: middle;
+      input {
+        vertical-align: middle;
+        width: 17px;
+        height: 17px;
+        margin-right: 0.3em;
+      }
+      span {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+// class 付与された input のサイズ
+.sizeS1 { width: 6em; }
+.sizeS2 { width: 6em; }
+.sizeM, .sizeL { width: 100%; }
+// グループごと
+.group-birth {
+  .sizeS1, .sizeS2 { text-align: right; }
+  .sizeS1 { width: 4em; }
+  .sizeS2 { width: 3em; }
+  @include flex(wrap, flex-start, center);
+  .inline-item { margin: 0 0 8px !important; }
+}
+.group-add {
+  .inline-item {
+    small {
+      flex-basis: 3em;
+      text-align: right;
+    }
+  }
+}
+@include res_min() {
+  .sizeS1 { width: 8em; }
+  .sizeM { width: 50%; }
+  .sizeL { width: 90%; }
+  // グループごと
+  .group-birth {
+    flex-wrap: nowrap;
+    .sizeS1 { width: 6em; }
+    .sizeS2 { width: 4em; }
+    .inline-item { margin: 0 !important; }
+  }
+  .group-telnum {
+    .sizeM { width: 100%; }
+  }
+  .group-add {
+    .inline-item {
+      small {
+        flex-basis: auto;
+        text-align: left;
+      }
+    }
+  }
+}
+
+
+// 同意する
+.agree-area {
+  padding: 50px 0 ;
+  text-align: center;
+  .item-input {
+    margin-bottom: 1em;
+    .wpcf7-list-item {
+      margin: 0;
+    }
+  }
+}
+@include res_min() {
+  .agree-area {
+    padding: 40px 0 ;
+  }
+}
+
+
+// ボタン
+.form-btn-wrap {
+  padding: 30px 10px 40px;
+  text-align: center;
+  background-color: #fcfaf8;
+  .btn-area-txt {
+    margin-bottom: 30px;
+  }
+  .btn-confirm,
+  .btn-submit,
+  .btn-back {
+    input {
+      transition: 0.2s ease;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+  .btn-confirm,
+  .btn-submit {
+    margin-top: 20px;
+    input {
+      width: 80%;
+      max-width: 260px;
+      padding: 15px 0;
+      background-color: #938075;
+      border: none;
+      color: $c-white;
+    }
+  }
+  .btn-back {
+    input {
+      width: 80%;
+      max-width: 266px;
+      padding: 15px 0;
+      background-color: $c-white;
+      border: none;
+      color: #938075;
+      border: 1px solid #e4dad5;
+    }
+  }
+}
+@include res_min() {
+  .form-btn-wrap {
+    padding: 45px 10px 50px;
+    .btn-area-txt {
+      margin-bottom: 20px;
+    }
+    .btn-confirm,
+    .btn-submit {
+      margin-top: 20px;
+      input {
+        width: 100%;
+        padding: 12px 0;
+      }
+    }
+    .btn-back {
+      input {
+        width: 100%;
+        padding: 12px 0;
+      }
+    }
+  }
+}
+
+
+// エラーメッセージ
+.wpcf7-response-output {}
+.wpcf7-not-valid-tip {
+  margin: 5px 0;
+  pointer-events: none;
+  font-size: 90%;
+  line-height: 1.4;
+}
+.group-birth {
+  .wpcf7-form-control-wrap {
+    @include flex(nowrap, flex-start, center);
+    input {
+      flex: 0 0;
+    }
+    .wpcf7-not-valid-tip {
+      margin-left: 10px;
+    }
+  }
+}
+.add-num {
+  @include flex(nowrap, flex-start, center);
+  input {
+    flex: 0 0;
+  }
+  .wpcf7-not-valid-tip {
+    margin-left: 10px;
+  }
+}
+.koyokeitai, .add {
+  @include flex(nowrap, flex-start, center);
+  .wpcf7-not-valid-tip {
+    flex-basis: 45%;
+    margin-left: 10px;
+  }
+}
+@include res_min() {
+  .wpcf7-response-output {
+    text-align: center;
+  }
+  .sex {
+    .wpcf7-not-valid-tip {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  .add {
+    .wpcf7-not-valid-tip {
+      flex-basis: auto;
+      white-space: nowrap;
+    }
+  }
+}
+
+
+// ajax loader
+.btn-submit {
+  position: relative;
+  .ajax-loader {
+    margin: 0 !important;
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%);
+  }
+}
+
+
+// イベント処理 ----------
+// ラジオボタンにチェックがされたら
+.form-item.select-parttimer {
+  display: none;
+}
+
+
+// 現在のページによる処理 ----------
+.msg-entry, .msg-confirm { display: none; }
+// 入力
+form[data-status="init"],
+// エラー時
+form[data-status="invalid"] {
+  .msg-entry { display: block; }
+  .msg-confirm { display: none; }
+  // .btn-back, .btn-submit {
+  //   display: none;
+  // }
+}
+// 確認
+form[data-status="custom-wpcf7c-confirmed"] {
+  padding-top: 80px;
+  margin-top: -80px;
+  .msg-entry { display: none; }
+  .msg-confirm { display: block; }
+  .form-area {
+    input:not([type='checkbox']),
+    input:not([type='radio']),
+    select,
+    textarea {
+      background-color: #e9e9e9;
+      border: 1px solid #d6d4d3;
+    }
+  }
+}
+@include res_min() {
+  form[data-status="custom-wpcf7c-confirmed"] {
+    padding-top: 140px;
+    margin-top: -140px;
+  }
+}

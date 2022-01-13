@@ -1,0 +1,101 @@
+<section class="form-area">
+
+  <h2 class="form-hl">
+    <span class="msg-entry">ご希望職種の選択</span><span class="msg-confirm">ご希望職種の確認</span>
+  </h2>
+
+  <div class="form-item">
+    <div class="item-label"><label for="kibo-job">ご希望職種<span class="req">必須</span></label></div>
+    <div class="item-input">
+    <div class="form-item-select">[select* kibo-job class:sizeM "管理栄養士、栄養士" "調理員" "介護職（介護福祉士）" "介護職（初任者研修）" "介護職（資格なし）" "看護師（正看護師）" "看護師（准看護師）" "リハビリ職（理学療法⼠）" "リハビリ職（作業療法⼠）" "ケアマネージャー（介護支援専門員）" "サービス管理責任者" "生活支援員" "事務職員" "その他"]</div>
+    </div>
+  </div>
+
+  <div class="form-item">
+    <div class="item-label"><label for="koyokeitai">雇用形態<span class="req">必須</span></label></div>
+    <div class="item-input">[radio koyokeitai use_label_element "正社員" "パート"]</div>
+  </div>
+
+
+  <h2 class="form-hl">
+    <span class="msg-entry">ご連絡先等の入力</span><span class="msg-confirm">ご連絡先等の確認</span>
+  </h2>
+
+  <div class="form-item">
+    <div class="item-label"><label for="shimei">氏名<span class="req">必須</span></label></div>
+    <div class="item-input">[text* shimei class:sizeM]</div>
+  </div>
+
+  <div class="form-item">
+    <div class="item-label"><label for="furigana">フリガナ<span class="req">必須</span></label></div>
+    <div class="item-input">[text* furigana class:sizeM]</div>
+  </div>
+
+  <div class="form-item">
+    <div class="item-label"><label for="sex">性別<span class="req">必須</span></label></div>
+    <div class="item-input">[radio sex use_label_element "男" "女"]</div>
+  </div>
+
+  <div class="form-item">
+    <div class="item-label"><label for="birth-year">生年月日<span class="req">必須</span></label></div>
+    <div class="item-input group-birth">
+      <div class="inline-item">[text* birth-year class:sizeS1]<small>年</small></div>
+      <div class="inline-item">[text* birth-month class:sizeS2]<small>月</small></div>
+      <div class="inline-item">[text* birth-day class:sizeS2]<small>日</small></div>
+    </div>
+  </div>
+
+  <div class="form-item">
+    <div class="item-label"><label for="telnum">電話番号</label></div>
+    <div class="item-input group-telnum">
+      <div class="inline-item"><small>自宅電話番号</small>[tel telnum class:sizeM]</div>
+      <div class="inline-item"><small>携帯電話番号</small>[tel telnum-mobile class:sizeM]</div>
+    </div>
+  </div>
+
+  <div class="form-item">
+    <div class="item-label"><label for="e-mail">メールアドレス<span class="req">必須</span></label></div>
+    <div class="item-input">[email* e-mail class:sizeL]</div>
+  </div>
+
+  <div class="form-item">
+    <div class="item-label"><label for="add-num">ご住所<span class="req">必須</span></label></div>
+    <div class="item-input group-add">
+      <div class="inline-item"><small>〒</small>[text* add-num class:sizeS1]</div>
+      <div class="inline-item"><small>住所：</small>[text* add class:sizeL]</div>
+      </div>
+  </div>
+
+  <div class="form-item select-parttimer">
+    <div class="item-label"><label for="kibo-time">勤務希望時間</label></div>
+    <div class="item-input">[text kibo-time class:sizeL]</div>
+  </div>
+
+  <div class="form-item select-parttimer">
+    <div class="item-label"><label for="kibo-day">一週間の希望日数</label></div>
+    <div class="item-input">[text kibo-day class:sizeL]</div>
+  </div>
+
+  <div class="form-item">
+    <div class="item-label"><label for="biko">自己PR / ご質問など</label></div>
+    <div class="item-input">
+      <div>自己PRやご質問などございましたらご入力ください。</div>
+      <div>[textarea biko class:sizeM]</div>
+    </div>
+  </div>
+
+</section>
+
+<div class="agree-area">
+  <div class="item-input">[checkbox* agreement use_label_element "個人情報保護方針に同意する"]</div>
+  <a href="../privacy/" target="_blank" rel="noopener noreferrer" class="link02">→個人情報保護方針はこちら</a>
+</div>
+
+<div class="form-btn-wrap">
+  <div class="btn-area-txt">
+    <p class="msg-entry">ご記入ありがとうございました。<br>以下の「確認」ボタンより、入力内容の確認ページへ移動してください。</p><p class="msg-confirm">ご記入内容に間違いがなければ、<br>以下の「送信」ボタンより送信を完了してください。<br>内容を修正する場合は「戻る」ボタンをクリックして<br>内容を修正したのち再度「確認」ボタンをクリックしてください。</p>
+  </div>
+  <div class="btn-confirm">[confirm "確認"]</div>
+  <div class="btn-back">[back "戻る"]</div>
+  <div class="btn-submit">[submit "送信"]</div>
+</div>

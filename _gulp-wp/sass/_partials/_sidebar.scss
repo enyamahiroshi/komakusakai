@@ -1,0 +1,75 @@
+// ----------------------------------------------------------------
+// サイドバー
+// ----------------------------------------------------------------
+.side-column {
+  margin-top: 40px;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  background-color: #f7f7f7;
+}
+@include res_min() {
+  .side-column {
+    margin: 0;
+    padding: 0;
+    background-color:$c-white;
+  }
+}
+
+
+// ----------------------------------------------------------------
+// ウィジェット
+// ----------------------------------------------------------------
+.widget-item {
+  margin-bottom: 24px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  .widget-title {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+  ul {
+    li {
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+  }
+}
+@include res_min() {
+  .widget-item {
+    margin-bottom: 30px;
+    .widget-title {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+    ul {
+      li {
+        margin-bottom: 8px;
+      }
+    }
+
+    // 最新記事
+    .post-list {
+      width: 170px;
+      .list-item {
+        flex-basis: 100%;
+        margin: 0 0 8px;
+        .post-img {
+          margin-bottom: 5px;
+        }
+        .post-date {
+          font-size: 1.3rem;
+          margin-bottom: 6px;
+        }
+        .post-title {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}

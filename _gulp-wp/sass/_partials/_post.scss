@@ -1,0 +1,335 @@
+// ----------------------------------------------------------------
+// アーカイブ / リスト と 記事個別ページ で共通パーツ
+// ----------------------------------------------------------------
+
+// 日付
+.post-date {
+  flex-basis: 6em;
+  font-size: 1.5rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+// カテゴリー
+.post-cat {
+  min-width: 10em;
+  padding: 5px;
+  background-color: #dbe5e4; // base color
+  font-size: 1.3rem;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+// カテゴリーカラー：カスタムフィールドから選択した色を反映
+.post-cat-color-color00 { background-color: #dbe5e4; } // base
+.post-cat-color-color01 { background-color: #4b4c69; color: $c-white; }
+.post-cat-color-color02 { background-color: #a41e2d; color: $c-white; }
+.post-cat-color-color03 { background-color: #a89470; color: $c-white; }
+.post-cat-color-color04 { background-color: #6eb6bd; color: $c-white; }
+.post-cat-color-color05 { background-color: #e2afc4; color: $c-white; }
+.post-cat-color-color06 { background-color: #709e72; color: $c-white; }
+.post-cat-color-color07 { background-color: #23803a; color: $c-white; }
+.post-cat-color-color08 { background-color: #e3bd76; color: $c-white; }
+.post-cat-color-color09 { background-color: #c96b54; color: $c-white; }
+// タイトル
+.post-title {
+  flex-basis: 100%;
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+@include res_min() {
+  // 日付
+  .post-date {
+    flex: 0 0 auto;
+    margin-right: 30px;
+    line-height: 25px;
+  }
+  // カテゴリー
+  .post-cat {
+    flex: 0 0 auto;
+    margin-right: 25px;
+    font-size: 1.5rem;
+  }
+  // タイトル
+  .post-title {
+    margin-top: -3px;
+  }
+}
+
+
+// ----------------------------------------------------------------
+// アーカイブ / リスト
+// ----------------------------------------------------------------
+// リスト
+.post-list {
+  margin-top: 50px;
+  .list-item {
+    .post-link {
+      padding: 25px 30px 20px 0;
+      position: relative;
+      &::after {
+        content: '';
+        width: 14px;
+        height: 100%;
+        background-image: url(./assets/img/icon/ico-arrow3.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100%;
+        position: absolute;
+        right: 5px;
+        top: 0;
+      }
+      &:link, &:visited {
+        text-decoration: none;
+      }
+      &:hover, &:active {
+        opacity: 0.7;
+        color: $c-base;
+      }
+      // データ
+      .post-data {
+        @include flex(wrap, flex-start, center);
+      }
+    }
+    &:not(:last-of-type) .post-link {
+      border-bottom: 1px dashed #808080;
+    }
+  }
+
+  // サムネイル付き
+  &---thumbnail {
+    .list-item {
+      &:not(:first-of-type) { margin-top: 15px; }
+      .post-link {
+        padding: 0;
+        border: none !important;
+        &::after { content: none; }
+        @include flex(nowrap, flex-start, stretch);
+        // サムネイル
+        .post-img {
+          flex-basis: 45%;
+          height: 0;
+          padding-top: 45%;
+          position: relative;
+          background-color: $c-white;
+          background-position: center center;
+          background-size: cover;
+          position: relative;
+          &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            border: 1px solid #e1e1e1;
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+        }
+        // データ
+        .post-data {
+          display: block;
+          flex-basis: 55%;
+          margin-top: 2px;
+          padding-left: 15px;
+        }
+        // カテゴリー
+        .post-cat {
+          min-width: none;
+          margin-top: 10px;
+        }
+        // タイトル
+        .post-title {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+}
+@include res_min() {
+  .post-list {
+    margin-top: 70px;
+    .list-item {
+      .post-link {
+        display: block;
+        padding: 18px 55px 18px 13px;
+        &::after {
+          width: 21px;
+          right: 11px;
+        }
+        // データ
+        .post-data {
+          @include flex(nowrap, flex-start, flex-start);
+        }
+      }
+    }
+
+    // サムネイル付き
+    &---thumbnail {
+      margin-left: -1.6%;
+      margin-right: -1.6%;
+      @include flex(nowrap, flex-start, stretch);
+      .list-item {
+        flex-basis: 20%;
+        &:not(:first-of-type) { margin-top: 0; }
+        margin: 0 1.6%;
+        .post-link {
+          height: 100%;
+          padding: 0;
+          @include flex(nowrap, flex-start, f);
+          flex-direction: column;
+          // サムネイル
+          .post-img {
+            flex-basis: auto;
+            width: 100%;
+            padding-top: 100%;
+          }
+          // データ
+          .post-data {
+            display: block;
+            flex-basis: auto;
+            margin-top: 30px;
+            padding-left: 0;
+            text-align: center;
+          }
+           // 日付
+          .post-date {
+            margin-right: 0;
+            font-size: 1.5rem;
+            line-height: 1;
+          }
+          // カテゴリー
+          .post-cat {
+            display: inline-block;
+            min-width: 143px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.4rem;
+          }
+          // タイトル
+          .post-title {
+            margin-top: 15px;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+// ----------------------------------------------------------------
+// 記事個別ページ
+// ----------------------------------------------------------------
+.post-meta {
+  text-align: center;
+  // 日付
+  .post-date {
+    font-size: 1.8rem;
+  }
+  // カテゴリー
+  .post-cat {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1.5rem;
+  }
+  // タイトル
+  .post-title {
+    margin-top: 15px;
+    font-size: 2.5rem;
+  }
+}
+@include res_min() {
+  .post-meta {
+    @include flex(wrap, center, center);
+    // 日付
+    .post-date {
+      flex-basis: auto;
+      margin-right: 15px;
+    }
+    // カテゴリー
+    .post-cat {
+      flex-basis: auto;
+      margin-top: 0;
+      margin-right: 0;
+      font-size: 1.4rem;
+    }
+    // タイトル
+    .post-title {
+      flex-basis: 100%;
+      margin-top: 0;
+      font-size: 3.8rem;
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------
+//  個別ページで「前後の記事」
+// ----------------------------------------------------------------
+.pagenation {
+  margin: 50px 0 30px;
+  padding-top: 50px;
+  border-top: 1px dashed #808080;
+  @include flex(nowrap, space-between, center);
+  div {
+    flex-basis: auto;
+    @include flex(wrap, center, center);
+    // 共通
+    a {
+      font-size: 1.6rem;
+      &:link, &:visited {
+        color: $c-base;
+        text-decoration: none;
+      }
+      &:hover, &:active {
+        opacity: 0.7;
+      }
+    }
+    // 一覧へ
+    &.all a {
+      flex: 0 0 auto;
+      margin: 0 5px;
+      padding: 0 10px;
+      border-left: 1px solid $c-base;
+      border-right: 1px solid $c-base;
+      line-height: 1;
+    }
+    // 前へ・次へ
+    &.prev a.btn,
+    &.next a.btn {
+      flex: 1 1 auto;
+      line-height: 1.3;
+      white-space: pre-wrap;
+    }
+    // 前へ
+    &.prev a.btn {
+      text-align: left;
+    }
+    // 次へ
+    &.next a.btn {
+      text-align: right;
+    }
+  }
+}
+@include res_min() {
+  .pagenation {
+    margin: 80px 0 50px;
+    padding-top: 60px;
+    justify-content: center;
+    div {
+      // 共通
+      a {
+        font-size: 1.8rem;
+      }
+      // 一覧へ
+      &.all a {
+        margin: 0 8px;
+        padding: 0 8px;
+      }
+    }
+  }
+}

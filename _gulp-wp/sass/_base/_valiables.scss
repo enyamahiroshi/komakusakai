@@ -1,0 +1,38 @@
+// ----------------------------------------------------------------
+// * Valiables
+// ----------------------------------------------------------------
+
+// 構成設定
+$overSP: 768; // スマホ想定サイズ以上
+$overTB: 1028; // タブレット想定サイズ以上
+$supported-browsers: 'chrome', 'firefox', 'safari', 'ie', 'ios-safari', 'android';
+$browser-minimum-versions: ('ie': '11');
+
+// フォントファミリー
+// ゴシック系
+$ff-go: 'Noto Sans CJK JP', sans-serif;
+$ff-go---ie11: 'Noto Sans JP', sans-serif;
+// $ff-go: 'Yu Gothic Medium', '游ゴシック Medium', YuGothic, '游ゴシック体', sans-serif;
+// 明朝系
+// $ff-min: 'Noto Serif CJK JP', serif;
+$ff-min: 'Lora', '游明朝体', 'Yu Mincho', YuMincho, serif;
+// 英語
+$ff-en: 'Lora', serif; // 400, 700
+// アイコン・数字など
+// $ff-icon: 'ForkAwesome';
+// $ff-num: 'Roboto', sans-serif;
+
+// カラー
+$c-base: #231815;
+$c-main: #a89471;
+$c-sub: #2d6772;
+$c-link: $c-base;
+$c-hover: $c-main;
+$c-attention: #ee0000;
+
+$c-black: #000000;
+$c-white: #ffffff;
+$c-gray1: #dddddd;
+$c-brown1: #4d4442;
+$c-green1: #2c6771;
+$c-blue1: #0071a9;

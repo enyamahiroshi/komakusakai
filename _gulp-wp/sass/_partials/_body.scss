@@ -1,0 +1,139 @@
+// ----------------------------------------------------------------
+// ボディー部
+// ----------------------------------------------------------------
+
+// 全体
+.main-content {
+  padding: 0 20px 40px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  &---facility {
+    background-color: #ece6de;
+  }
+  &---facility-detail {
+    padding-bottom: 0;
+  }
+}
+@include res_min()  {
+  .main-content {
+    padding: 0 0 120px;
+    &---facility-detail {
+      padding-bottom: 0;
+    }
+  }
+}
+
+// セクション
+.sec {
+  margin-top: 60px;
+  .inner {}
+  // full
+  &---full {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  // entry
+  &---entry {
+    margin-top: 50px;
+  }
+  // facility
+  &---facility-list {
+    margin-top: 50px;
+  }
+  &---facility-detail {
+    margin-top: 50px;
+    &:not(:first-of-type) {
+      margin-top: 0;
+    }
+  }
+  &---facility-anchor {
+    margin-top: 50px;
+  }
+  &---facility {
+    margin-top: 50px;
+  }
+  // recruit
+  &---recruit {
+    margin-top: 50px;
+  }
+  // form
+  &---form {
+    margin-top: 50px;
+  }
+  // privacy
+  &---privacy {
+    padding-bottom: 40px;
+  }
+}
+@include res_min() {
+  .sec {
+    margin-top: 150px;
+    .inner {
+      // ベースの横幅
+      @include maxW();
+    }
+    // full
+    &---full {
+      margin-left: 0;
+      margin-right: 0;
+      .inner {
+        width: auto;
+        max-width: none;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    // tight
+    &---tight {
+      .inner {
+        @include maxW(980);
+      }
+    }
+    // facility
+    &---facility-list {
+      margin-top: 90px;
+      .inner {
+        @include maxW(1620);
+      }
+    }
+    &---facility-detail {
+      margin-top: 25px;
+    }
+    &---facility-anchor {
+      margin-top: 25px;
+    }
+    &---facility {
+      margin-top: 90px;
+    }
+    // entry
+    &---entry {
+      margin-top: 70px;
+      .inner {
+        @include maxW(1100);
+      }
+    }
+    // recruit
+    &---recruit {
+      margin-top: 70px;
+      .inner {
+        @include maxW(806);
+      }
+    }
+    // form
+    &---form {
+      margin-top: 90px;
+      .inner {
+        @include maxW(1130);
+      }
+    }
+    // privacy
+    &---privacy {
+      margin-top: 70px;
+      padding-bottom: 80px;
+      .inner {
+        @include maxW(1100);
+      }
+    }
+  }
+}

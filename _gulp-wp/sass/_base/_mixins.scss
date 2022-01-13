@@ -1,0 +1,39 @@
+// ----------------------------------------------------------------
+// * Mixins
+// ----------------------------------------------------------------
+//レスポンシブの指定
+@mixin res_min($size :$overSP) {
+  @media only screen and (min-width: $size + 'px') {
+    @content;
+  }
+}
+@mixin res_max($size :$overSP) {
+  @media only screen and (max-width: $size + 'px') {
+    @content;
+  }
+}
+
+//max-width
+@mixin maxW($size: 1440) {
+  width: 100%;
+  max-width: calc(#{$size + px} + 60px);
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//flexbox
+@mixin flex($wrap: nowrap, $justify: flex-start, $alignitems: stretch){
+  display: flex;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $alignitems;
+}
+
+// 背景画像
+@mixin bgimg($repeat: no-repeat, $pos1: center, $pos2: center, $size: cover) {
+  background-repeat: $repeat;
+  background-position: $pos1 $pos2;
+  background-size: $size;
+}

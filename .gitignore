@@ -1,0 +1,13 @@
+.DS_Store
+
+*.log
+logs/
+
+.sass-cache/
+node_modules/
+themes/
+updraft/
+
+plugins/
+upgrade/
+uploads/

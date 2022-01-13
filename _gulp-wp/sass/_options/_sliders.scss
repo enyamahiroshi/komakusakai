@@ -1,0 +1,101 @@
+@charset 'UTF-8';
+
+// スライダーの構造を定義
+.slider_wrap{
+  padding-top: 50px;
+  background: url(./assets/img/home/bg-mv.png) repeat center;
+  background-size: 100% 720px;
+  position: relative;
+  //スライダー
+  #main_slider{
+    img{
+      width: 100%;
+    }
+    // ロード中は非表示にする
+    display: none;
+    &.slick-initialized{
+      display: block;
+    }
+    //各スライドコンテンツ
+    .slider_item{
+      position: relative;
+      .in_contents{
+        width: 100%;
+        padding: 0 20px;
+        text-align: center;
+        color:$c-white;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        .catchphrase{
+          font-family: $ff-min;
+          font-weight: 200;
+          font-size: 1.2rem;
+          margin-bottom: 0.6em;
+          text-shadow: 0 0.1em 0.4em rgba(2,10,53,0.85);
+        }
+        p{
+          margin-bottom: 0;
+          font-size: 0.7rem;
+          line-height: 2;
+          letter-spacing: 0.03em;
+          text-align: center;
+          text-shadow: 0 0.1em 0.4em rgba(2,10,53,0.85);
+        }
+      }
+    }
+  }
+}
+@include res_min() {
+  .slider_wrap{
+    padding-top: 73px;
+    //スライダー
+    #main_slider{
+      //各スライドコンテンツ
+      .slider_item{
+        .in_contents{
+            padding: 0;
+          .catchphrase{
+            font-size: 3.875rem;
+            line-height: 1.45;
+            letter-spacing: -0.07em;
+            margin-bottom: 0.3em;
+            text-shadow: 0 0.05em 0.4em rgba(2,10,53,0.8);
+          }
+          p{
+            font-size: 1.15rem;
+            line-height: 2.6;
+            letter-spacing: 0.05em;
+          }
+        }
+        //スライドごとに変化
+        &---2{
+          .in_contents{
+            text-align: left;
+            left: 6%;
+            transform: translate(0,-50%);
+            p{
+              text-align: left;
+              padding-left: 0.5em;
+            }
+          }
+        }
+        &---3,
+        &---5{
+          .in_contents{
+            text-align: left;
+            left: 6%;
+            top: auto;
+            bottom: 14%;
+            transform: translate(0,0);
+            p{
+              text-align: left;
+              padding-left: 0.5em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

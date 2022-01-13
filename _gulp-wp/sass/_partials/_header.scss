@@ -1,0 +1,416 @@
+// ----------------------------------------------------------------
+// ヘッダーのレイアウト
+// ----------------------------------------------------------------
+@keyframes intoMenu {
+  0% { opacity: 0; top: -50px; }
+  100% { opacity: 1; top: 0; }
+}
+@keyframes intoMenuRmv {
+  0% { opacity: 1; top: 0; }
+  100% { opacity: 0; top: -50px; }
+}
+@keyframes intoMenu2 {
+  0% { opacity: 0; top: -90px; }
+  100% { opacity: 1; top: 0; }
+}
+@keyframes intoMenuRmv2 {
+  0% { opacity: 1; top: 0; }
+  100% { opacity: 0; top: -90px; }
+}
+
+.main-navi-wrap {
+  width: 100%;
+  background-color: transparent;
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 9990;
+  .main-navi-header {
+    height: 50px;
+    padding: 0 0 0 12px;
+    z-index: 9991;
+    @include flex(nowrap, flex-end, center);
+    // ロゴ
+    .header-logo {
+      flex: 0 1 auto;
+      margin-right: 20px;
+      a {
+        display: block;
+        h1 {
+          line-height: 1;
+          svg {
+            width: 100%;
+            max-width: 252px;
+            margin: 0 auto;
+            .logomark {
+              fill: $c-white;
+            }
+            .logotype {
+              fill: $c-white;
+            }
+            .logosep {
+              fill: $c-white;
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+    // 採用情報用メニュー
+    .item-recruit {
+      margin-left: auto;
+      flex: 0 0 50px;
+      height: 100%;
+      background-color: $c-main;
+      @include flex(nowrap, center, center);
+      img {
+        width: 27px;
+      }
+    }
+  }
+
+  // スクロールで表示 & スクロールで非表示
+  &.is-fixed,
+  &.is-fixed-rmv {
+    position: fixed;
+    left: 0;
+    top: -50px;
+    background-color: $c-white;
+    &::before {
+      content: '';
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0));
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+    }
+    .main-navi-header {
+      .header-logo a h1 svg {
+        .logomark {
+          fill: $c-main;
+        }
+        .logotype {
+          fill: $c-base;
+        }
+        .logosep {
+          fill: $c-base;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &.is-fixed { animation: intoMenu 0.2s ease-out forwards; }
+  &.is-fixed-rmv { animation: intoMenuRmv 0.2s ease-out forwards; }
+
+}
+@include res_min(1024) {
+  .main-navi-wrap {
+    .main-navi-header {
+      height: 90px;
+      padding: 0 28px 0 32px;
+      justify-content: space-around;
+      // ロゴ
+      .header-logo {
+        flex: 0 1 35%;
+        @include res_min(1440) {
+          flex: 0 1 544px;
+        }
+        a {
+          h1 {
+            svg {
+              width: 100%;
+              max-width: none;
+            }
+          }
+        }
+      }
+      // 採用情報用メニュー
+      .item-recruit {
+       display: none;
+      }
+    }
+
+    // スクロールで表示 & スクロールで非表示
+    &.is-fixed,
+    &.is-fixed-rmv {
+      top: -90px;
+    }
+    &.is-fixed { animation: intoMenu2 0.2s ease-out forwards; }
+    &.is-fixed-rmv { animation: intoMenuRmv2 0.2s ease-out forwards; }
+
+  }
+}
+
+
+// ----------------------------------------------------------------
+// 開閉ボタン
+// ----------------------------------------------------------------
+.btn-menu {
+  flex: 0 0 50px;
+  height: 100%;
+  background-color: $c-sub;
+  z-index: 9999;
+  @include flex(nowrap, center, center);
+  flex-direction: column;
+  span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background-color: $c-white;
+    transition: all 0.15s ease-out;
+    &.line1 {}
+    &.line2 {
+      margin-top: 6px;
+    }
+    &.line3 {
+      margin-top: 6px;
+    }
+  }
+  small {
+    margin-top: 1px;
+    line-height: 1;
+    img {
+      width: 31px;
+      height: auto;
+    }
+  }
+  // メニューを開いたら閉じるボタンに変更
+  &.is-active {
+    background-color: transparent;
+    z-index: 9999;
+    span {
+      width: 37px;
+      background-color: $c-sub;
+      &.line1 {
+        transform: translate(-2px, 2px) rotate(-45deg);
+      }
+      &.line2 {
+        margin-top: -2px;
+        transform: translate(-2px, 2px) rotate(45deg);
+      }
+      &.line3 {
+        display: none;
+      }
+    }
+    small { display: none; }
+  }
+}
+@include res_min(1024) {
+  .btn-menu {
+    display: none;
+  }
+}
+
+
+// ----------------------------------------------------------------
+// グローバルメニュー
+// ----------------------------------------------------------------
+
+// メニューwrapper
+.header-menu {
+  width: 100%;
+  height: 100vh;
+  background-color: #f3f1ed;
+  background-image: url(./assets/img/common/bg-gmenu.png);
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: auto;
+  overflow-y: scroll;
+  position: fixed;
+  right: -100%;
+  top: 0;
+  z-index: 9998;
+  transition: all 0.15s ease-out;
+  // メニューオープン時
+  &.is-active {
+    right: 0;
+    .menu {
+      display: block;
+    }
+  }
+  .menu {
+    display: none;
+
+    width: 100%;
+    padding: 70px 15px 50px;
+    &::before {
+      content: '';
+      display: block;
+      margin: 0 auto 25px;
+      width: 52px;
+      height: 43px;
+      background-image: url(./assets/img/common/img-logo_mark-gold.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
+    }
+    li {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 1.2;
+      text-align: center;
+      border-top: 1px solid $c-gray1;
+      a {
+        display: inline-block;
+        padding: 27px 0;
+        &:link, &:visited {
+          color: $c-link;
+          text-decoration: none;
+        }
+        &:hover, &:active {
+          opacity: 0.7;
+          text-decoration: none;
+        }
+      }
+      // カレント
+      &.current-menu-item,
+      &.current-page-ancestor {
+        a {
+          &::after {
+            content: '';
+            display: block;
+            margin: 6px auto 0;
+            width: 100%;
+            height: 5px;
+            position: relative;
+            background-color: $c-main;
+          }
+        }
+      }
+      // 個別
+      &.link-item-recruit {
+        padding-top: 31px;
+        a {
+          padding: 14px 0;
+          width: 196px;
+          &:link, &:visited {
+            color: $c-white;
+            background-color: $c-main;
+          }
+        }
+      }
+      &.link-item-pp {
+        font-size: 1.6rem;
+        border-top: none;
+      }
+    }
+  }
+}
+@include res_min(1024) {
+  .header-menu {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    background-image: none !important;
+    overflow-y: hidden;
+
+    flex: 1 1 auto;
+    position: relative;
+    right: 0;
+
+    .menu {
+      width: auto;
+      padding: 0;
+      &::before { content: none; }
+      @include flex(nowrap, flex-end, center);
+      li {
+        margin-left: 1.5em;
+        @include res_min(1440) {
+          margin-left: 50px;
+        }
+        border-top: none;
+        a {
+          padding: 0;
+          font-size: 1.6rem;
+          @include res_min(1440) {
+            font-size: 1.8rem;
+          }
+          position: relative;
+          &::after {
+            content: '';
+            width: 100%;
+            height: 5px;
+            background-color: $c-main;
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%) scale(0);
+            transition: 0.2s ease;
+          }
+          &:link, &:visited {
+            color: $c-white;
+            text-decoration: none;
+          }
+          &:hover, &:active {
+            opacity: 0.7;
+            text-decoration: none;
+            &::after {
+              transform: translateX(-50%) scale(1);
+            }
+          }
+        }
+        // カレント
+        &.current-menu-item,
+        &.current-page-ancestor {
+          a {
+            &::after {
+              position: absolute;
+              left: 50%;
+              bottom: -10px;
+              transform: translateX(-50%);
+            }
+          }
+        }
+        // 個別
+        &.link-item-recruit {
+          margin-left: 1.5em;
+          @include res_min(1440) {
+            margin-left: 40px;
+          }
+          padding-top: 0;
+          a {
+            width: 140px;
+          @include res_min(1440) {
+            width: 196px;
+          }
+            &::after {
+              content: none;
+            }
+          }
+        }
+        &.link-item-pp {
+          display: none;
+        }
+      }
+    }
+
+    // メニューオープン時
+    &.is-active {
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      background-image: none;
+      overflow: hidden;
+      right: auto;
+      .menu {
+        @include flex(nowrap, flex-end, center);
+      }
+    }
+
+    // メニュー固定時
+    &.is-fixed {
+      .menu li {
+        a {
+          &:link, &:visited { color: $c-base; }
+        }
+        &.link-item-recruit {
+          a {
+            &:link, &:visited { color: $c-white; }
+          }
+        }
+      }
+    }
+
+  }
+}

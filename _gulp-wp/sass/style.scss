@@ -1,0 +1,40 @@
+/*
+Theme Name:
+Author:
+Author URI:
+*/
+
+// @import Font;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+// @import '_base/reset';
+@import '_base/ress';
+@import '_base/valiables';
+@import '_base/mixins';
+
+@import '_fonts/notosans-cjk-jp';
+// @import '_fonts/notoserif-cjk-jp';
+// @import '_fonts/fork-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+@import '_partials/base';
+@import '_partials/btn';
+@import '_partials/parts';
+@import '_partials/header';
+@import '_partials/body';
+// @import '_partials/sidebar';
+@import '_partials/footer';
+@import '_partials/pages';
+@import '_partials/post';
+@import '_partials/editor';
+@import '_partials/form';
+
+// @import '_plugins/contact_form7';
+@import '_plugins/pagenavi';
+@import '_plugins/yostseo-pankuzu';
+
+// @import '_options/sliders';
+// @import '_options/js-gallery';
+// @import '_options/wp-gallery';
+
+@import '_jquery/ride-slick';

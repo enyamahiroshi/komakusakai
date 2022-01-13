@@ -1,0 +1,1924 @@
+// ----------------------------------------------------------------
+// HOME
+// ----------------------------------------------------------------
+// 施設案内
+.facility-info {
+  margin: -30vw 15px 0;
+  margin: 0 15px;
+  background-image: url(./assets/img/facility/bg-facility-list.jpg);
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: auto;
+  position: relative;
+  z-index: 99;
+  .btn-wrap {
+    margin: 0 auto;
+    padding: 30px 0;
+  }
+}
+.facility-info-list {
+  margin: 0 7vw -12.3vw;
+  transform: translateY(-12.3vw);
+  .facility-item {
+    &:not(:first-of-type) {
+      margin-top: 15px;
+    }
+    background-color: $c-white;
+    text-align: center;
+    .facility-link {
+      display: block;
+      .facility-img {
+        position: relative;
+        .logo-komakusa_kai,
+        .logo-komakusafukushi_kai {
+          width: 44px;
+          height: 44px;
+          background-color: $c-white;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: 100%;
+          border-radius: 50%;
+          position: absolute;
+          left: calc(50% - 22px);
+          bottom: -22px;
+        }
+        .logo-komakusa_kai { background-image: url(./assets/img/facility/img-logo-komakusa_kai.svg); }
+        .logo-komakusafukushi_kai { background-image: url(./assets/img/facility/img-logo-komakusafukushi_kai.svg); }
+      }
+      &:link, &:visited {
+        text-decoration: none;
+      }
+      &:hover, &:active {
+        opacity: 0.7;
+        color: $c-base;
+        img {
+          opacity: 1;
+        }
+      }
+      .facility-data {
+        padding: 30px 8px 25px;
+        p {
+          margin-bottom: 0;
+          line-height: 1.3;
+        }
+        .facility-group {
+          font-size: 1.3rem;
+        }
+        .facility-type {
+          margin-top: 10px;
+          font-size: 1.5rem;
+        }
+        .facility-name {
+          margin-top: 10px;
+          font-size: 2.1rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+@include res_min() {
+  .facility-info {
+    width: calc(100% - 8%);
+    margin: 0 4%;
+    @include res_min(1440) {
+      // position: absolute;
+      // left: 0;
+      // bottom: 11.2%;
+    }
+  }
+  .facility-info-list {
+    margin: 0 2.8% calc(-4.8vw - 20px);
+    transform: translateY(-4.8vw);
+    @include flex(wrap, space-between, stretch);
+    @include res_min(1440) {
+      flex-wrap: nowrap;
+      margin-bottom: -4.8vw;
+    }
+    .facility-item {
+      &:not(:first-of-type) {
+        margin-top: 0;
+      }
+      flex-basis: calc(33.333% - 20px);
+      @include res_min(1440) {
+        flex-basis: calc(16.667% - 20px);
+      }
+      margin: 0 10px 20px;
+      @include res_min(1440) {
+        margin: 0 10px;
+      }
+      .facility-link {
+        height: 100%;
+        @include flex(nowrap, space-between, stretch);
+        flex-direction: column;
+        .facility-img {
+          height: 49%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            font-family: 'object-fit: cover;'; // IE11 object-fit 対策
+          }
+        }
+        .facility-data {
+          height: 51%;
+          @include res_min(1440) {
+            padding-top: 12%;
+            padding-bottom: 8%;
+            @include res_min(1680) {
+              padding-top: 30px;
+              padding-bottom: 25px;
+            }
+          }
+          @include flex(nowrap, space-between, stretch);
+          flex-direction: column;
+          .facility-group {
+            font-size: 1.3rem;
+            @include res_min(1024) {
+              font-size: 1.4rem;
+              @include res_min(1440) {
+                font-size: 0.7vw;
+              }
+            }
+          }
+          .facility-type {
+            margin-top: 0;
+            font-size: 1.2rem;
+            @include res_min(1024) {
+              font-size: 1.4rem;
+              @include res_min(1440) {
+                margin-top: 15px;
+                font-size: 0.7vw;
+              }
+            }
+          }
+          .facility-name {
+            margin-top: 0;
+            font-size: 1.8rem;
+            @include res_min(1024) {
+              font-size: 2rem;
+              @include res_min(1440) {
+                margin-top: 15px;
+                font-size: 1vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// お知らせ
+.sec---information {}
+.hl-block {
+  position: relative;
+}
+@include res_min() {
+  .sec---information {
+    margin-top: 0;
+  }
+  .hl-block {
+    .btn-wrap {
+      margin: 0;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+// 他ページへの誘導
+.sec---induction {
+  padding-bottom: 20px;
+  .recruit-info {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-top: calc(51.5% + 20px);
+    background-image: url(./assets/img/home/bg-induction-recruit.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100%;
+    position: relative;
+    .info-block {
+      width: 70%;
+      margin: -30px auto 0;
+      padding: 40px 10px;
+      background-color: $c-brown1;
+      color: $c-white;
+      text-align: center;
+      span {
+        display: block;
+        font-family: $ff-en;
+        font-size: 3rem;
+        line-height: 1.2;
+      }
+      em {
+        display: block;
+        margin-top: 5px;
+        font-size: 1.5rem;
+        line-height: 1.2;
+      }
+      .btn-wrap {
+        margin: 50px 0 0;
+      }
+    }
+  }
+
+  .btn-wrap-large {
+    margin-top: 50px;
+    text-align: center;
+  }
+}
+@include res_min() {
+  .sec---induction {
+    padding-bottom: 0;
+    .recruit-info {
+      margin-left: 0;
+      margin-right: 0;
+      height: 0;
+      padding-top: 49%;
+      background-position: right bottom;
+      background-size: 86%;
+      .info-block {
+        width: 308px;
+        margin: 0;
+        padding: 70px 10px 75px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        span {
+          font-size: 3.7rem;
+        }
+        em {
+          margin-top: 3px;
+          font-size: 1.7rem;
+        }
+        .btn-wrap {
+          margin-top: 70px;
+        }
+      }
+    }
+
+    .btn-wrap-large {
+      margin-top: 120px;
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------
+// 当グループについて
+// ----------------------------------------------------------------
+// ごあいさつ
+.block-message {
+  .message-img {
+    margin: 0 10%;
+  }
+  .message-data {
+    margin-top: 30px;
+    font-family: $ff-min;
+    .hl02 {
+      font-weight: 500;
+    }
+    .message-txt {
+      margin-top: 20px;
+      font-size: 1.5rem;
+    }
+    .message-sign {
+      text-align: right;
+      small {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1em;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+@include res_min() {
+  .block-message {
+    @include flex(nowrap, space-between, stretch);
+    .message-img {
+      flex-basis: 35.5%;
+      margin: 0;
+    }
+    .message-data {
+      flex-basis: 59%;
+      padding: 0;
+      margin-top: 0;
+      .message-txt {
+        margin-top: 30px;
+        margin-bottom: 0;
+        font-size: 2.1rem;
+        line-height: 1.9;
+      }
+      .message-sign {
+        margin-top: 5px;
+        font-size: 2.4rem;
+        small {
+          margin-right: 1.2em;
+          font-size: 1.9rem;
+        }
+      }
+    }
+  }
+}
+
+// 沿革
+.block-history {
+  margin-top: 50px;
+  padding: 40px 20px 20px;
+  background-color: #f5f4f3;
+}
+.item-history {
+  padding: 0 0 0 10px;
+  border-bottom: 1px dashed #808080;
+  &:first-of-type {
+    margin-top: 30px;
+    border-top: 1px dashed #808080;
+  }
+  @include flex(nowrap, flex-start, stretch);
+  .history-label {
+    flex: 0 0 5em;
+    padding: 10px 0;
+    white-space: nowrap;
+  }
+  .history-data {
+    flex: 1 1 auto;
+    p {
+      margin: 0;
+      padding: 10px 0;
+      &:not(:last-of-type) {
+        border-bottom: 1px dashed #808080;
+      }
+    }
+  }
+}
+@include res_min() {
+  .block-history {
+    margin-top: 165px;
+    padding: 80px 17% 140px;
+    .hl02 {
+      text-align: center;
+    }
+  }
+  .item-history {
+    padding: 0 0 0 25px;
+    &:first-of-type {
+      margin-top: 75px;
+    }
+    .history-label {
+      flex: 0 0 6em;
+      padding: 20px 0;
+    }
+    .history-data {
+      p {
+        padding: 20px 0;
+      }
+    }
+  }
+}
+
+// 情報公開
+.corporate-information {
+  margin: 80px auto 30px;
+  padding: 0 20px;
+  .hl03 {
+    border-bottom: 1px solid $c-green1;
+    padding-bottom: 12px;
+  }
+  p {
+    margin-top: 30px;
+  }
+}
+@include res_min() {
+  .corporate-information {
+    margin: 150px auto 50px;
+    padding: 0;
+    width: 65%;
+    .hl03 {
+      padding-bottom: 20px;
+    }
+    p {
+      margin-top: 40px;
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------
+// お知らせ
+// ----------------------------------------------------------------
+// 一覧
+.information-title {
+  font-family: $ff-en;
+  font-size: 2.5rem;
+}
+@include res_min() {
+  .information-title {
+    font-size: 3.2rem;
+  }
+}
+
+// 記事
+.post-body {
+  margin-top: 25px;
+  .post-main-image {
+    margin-bottom: 10px;
+  }
+}
+@include res_min() {
+  .post-body {
+    margin-top: 60px;
+    .post-main-image {
+      margin-bottom: 35px;
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------
+// 施設一覧
+// ----------------------------------------------------------------
+.sec---facility-list {
+  .btn-wrap-large {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+}
+@include res_min() {
+  .sec---facility-list {
+    .btn-wrap-large {
+      margin-top: 80px;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.facility-list {
+  .facility-item {
+    &:not(:first-of-type) {
+      margin-top: 15px;
+    }
+    .facility-link {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      &:link, &:visited {
+        color: $c-white;
+        text-decoration: none;
+      }
+      .facility-img {
+        position: relative;
+        &::after {
+          content: '';
+          width: 100%;
+          height: 100%;
+          background : linear-gradient(to top, rgba(15, 15, 15, 0.5) 0%, rgba(0, 0, 0, 0) 40%,  rgba(0, 0, 0, 0));
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+      .facility-data-group {
+        width: 100%;
+        height: 100%;
+        padding: 12px 15px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        @include flex(nowrap, flex-end, stretch);
+        flex-direction: column;
+        .facility-data {
+          margin-top: 15px;
+          padding: 3px 0 0 12px;
+          line-height: 1.4;
+          border-left: 5px solid $c-white;
+          p { margin-bottom: 0; }
+          .facility-type {
+            font-size: 1.3rem;
+          }
+          .facility-name {
+            margin-top: 3px;
+            font-family: $ff-min;
+            font-size: 2.5rem;
+            font-weight: 600;
+          }
+          .facility-more {
+            display: none;
+            font-size: 1.8rem;
+            line-height: 1.5;
+            .more-add {}
+            .more-tel {
+              font-size: 2.2rem;
+              font-weight: normal;
+            }
+            .more-fax {}
+          }
+        }
+      }
+    }
+  }
+}
+@include res_min() {
+  .facility-list {
+    @include flex(wrap, flex-start, stretch);
+    .facility-item {
+      flex-basis: calc(50% - 17px);
+      margin: 34px 34px 0 0;
+      &:not(:first-of-type) { margin-top: 34px; }
+      &:nth-of-type(2n) { margin-right: 0; }
+      .facility-link {
+        .facility-img {
+          &::after {
+            background : linear-gradient(to top, rgba(15, 15, 15, 0.5) 0%, rgba(0, 0, 0, 0) 30%,  rgba(0, 0, 0, 0));
+          }
+        }
+        .facility-data-group {
+          padding: 20px 25px;
+          z-index: 1;
+          &::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 17, 14, 0.7);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            opacity: 0;
+            transition: .5s ease-out;
+          }
+          .facility-data {
+            margin-top: 30px;
+            padding: 0 0 0 18px;
+            position: relative;
+            overflow: hidden;
+            .facility-type {
+              font-size: 1.146vw;
+            }
+            .facility-name {
+              margin-top: 5px;
+              margin-bottom: -2px;
+              font-size: 3rem;
+            }
+            .facility-more {
+              display: block;
+              height: 0px;
+              opacity: 0;
+              transition: height .5s ease, opacity .5s ease;
+              &::before {
+                content: '';
+                display: block;
+                height: 15px;
+              }
+              .more-tel {
+                font-size: 2.2rem;
+                font-weight: normal;
+              }
+            }
+          }
+        }
+
+        // hover アクション
+        &:hover, &:active {
+          .facility-data-group {
+            &::before {
+              opacity: 1;
+            }
+            .facility-data {
+              .facility-more {
+                opacity: 1;
+                // height: calc(87px + 15px);
+                height: 102px;
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------
+// 施設：個別
+// ----------------------------------------------------------------
+// 施設名とイントロ
+.facility-header {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 0 20px 50px;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  .facility-intro {
+    margin-top: 40px;
+    font-family: $ff-min;
+    font-size: 1.8rem;
+    line-height: 1.8;
+    br {
+      display: none;
+    }
+  }
+  // 個別
+  &---ikedaclinic { background-image: url(./assets/img/facility/ikedaclinic/bg-intro.jpg); }
+  &---nijinomori { background-image: url(./assets/img/facility/nijinomori_komakusanomori/bg-intro-nijinomori.jpg); }
+  &---komakusanomori { background-image: url(./assets/img/facility/nijinomori_komakusanomori/bg-intro-komakusanomori.jpg); }
+  &---terracenomori_suwako { background-image: url(./assets/img/facility/terracenomori_suwako/bg-intro.jpg); }
+  &---shirakomanomori { background-image: url(./assets/img/facility/shirakomanomori/bg-intro.jpg); }
+  &---fukurounomori { background-image: url(./assets/img/facility/fukurounomori/bg-intro.jpg); }
+  &---uguisunomori { background-image: url(./assets/img/facility/uguisunomori/bg-intro.jpg); }
+}
+@include res_min() {
+  .facility-header {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 50px 120px;
+    .facility-intro {
+      margin-top: 80px;
+      font-size: 2.2rem;
+      line-height: 3;
+      text-align: center;
+      br {
+        display: block;
+      }
+    }
+  }
+}
+
+// 施設内header
+.sec---facility-detail {
+  .page-header---facility-detail {
+    margin-top: 0;
+    margin-left: -21px;
+    margin-right: -21px;
+    &::before {
+      content: none;
+    }
+  }
+  .facility-header {
+    margin-top: 40px;
+  }
+}
+@include res_min() {
+  .sec---facility-detail {
+    .page-header---facility-detail {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .facility-header {
+      margin-top: 40px;
+    }
+  }
+}
+
+// ページ内アンカー
+.sec---facility-anchor {
+  .facility-header {
+    margin-top: 40px;
+    padding-bottom: 50px;
+  }
+}
+@include res_min() {
+  .sec---facility-anchor {
+    .facility-header {
+      margin-top: 25px;
+      padding: 0 0 100px;
+    }
+  }
+}
+
+.anchor-link {
+  margin-top: 50px;
+  .item-link {
+    display: block;
+    padding: 8px 8px 20px;
+    text-align: center;
+    position: relative;
+    &:not(:first-of-type) {
+      margin-top: 15px;
+    }
+    &::after {
+      content: '';
+      width: 100%;
+      height: 10px;
+      background-image: url(./assets/img/icon/ico-arrow2.svg);
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: auto 100%;
+      position: absolute;
+      left: 0;
+      bottom: 10px;
+      transform: rotate(90deg);
+    }
+    &:link, &:visited {
+      color:$c-white;
+      background-color: #a99571;
+      text-decoration: none;
+    }
+    &:hover, &:active {
+      opacity: 0.7;
+    }
+    p { margin-bottom: 0; line-height: 1.5; }
+    .item-img {
+      margin-bottom: 10px;
+    }
+    .item-sub-title {
+      font-size: 1.3rem;
+    }
+    .item-title {
+      font-size: 2.2rem;
+      font-weight: 500;
+    }
+  }
+}
+.facility-header---etc {
+  .anchor-link {
+    .item-link {
+      padding: 20px 8px 25px;
+    }
+  }
+}
+@include res_min() {
+  .anchor-link {
+    margin-top: 90px;
+    @include maxW();
+    @include flex(nowrap, flex-start, stretch);
+    .item-link {
+      padding: 10px 10px 35px;
+      &:not(:first-of-type) {
+        margin-top: 0;
+      }
+      &::after {
+        height: 14px;
+        bottom: 14px;
+      }
+      .item-img {
+        margin-bottom: 20px;
+      }
+      .item-sub-title {
+        font-size: 1.8rem;
+      }
+      .item-title {
+        font-size: 3.3rem;
+        line-height: 1.3;
+      }
+    }
+  }
+  .facility-header---nijinomori_komakusanomori {
+    .anchor-link {
+      .item-link {
+        flex-basis: calc(50% - 1.75%);
+        margin-right: 3.5%;
+        &:nth-of-type(2) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .facility-header---etc {
+    .anchor-link {
+      .item-link {
+        flex-basis: calc(33.333% - 1.1666%);
+        padding: 40px 10px;
+        margin-right: 3.5%;
+        &:nth-of-type(3) {
+          margin-right: 0;
+        }
+        &::after {
+          bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+// 施設名
+.page-title-facility {
+  color: $c-black;
+  line-height: 1.4;
+  text-align: center;
+  .facility-type, .facility-name, .facility-en { display: block; }
+  .facility-type {
+    font-size: 1.3rem;
+  }
+  .facility-name {
+    margin-top: -2px;
+    font-family: $ff-min;
+    font-size: 3.5rem;
+    font-weight: 600;
+  }
+  .facility-en {
+    margin-top: -2px;
+    font-family: $ff-min;
+    font-size: 1.1rem;
+    color: #969696;
+  }
+}
+@include res_min() {
+  .page-title-facility {
+    .facility-type {
+      font-size: 1.7rem;
+    }
+    .facility-name {
+      font-size: 5rem;
+    }
+    .facility-en {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// 見出し
+.facility-hl01 {
+  font-size: 3rem;
+  font-weight: 500;
+  text-align: center;
+  .hl-icon {
+    display: block;
+    margin-bottom: 5px;
+    line-height: 1;
+    // 各々
+    .ico-logo_mark { width: 64px; }
+    .ico-faci-facility { width: 60px; }
+    .ico-faci-kamoku { width: 45px; }
+    .ico-faci-clock { width: 35px; }
+    .ico-faci-kensa { width: 60px; }
+    .ico-faci-payment { width: 61px; }
+    .ico-faci-setsubi2 { width: 45px; }
+    .ico-faci-doctor { width: 45px; }
+  }
+  small {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+}
+@include res_min() {
+  .facility-hl01 {
+    font-size: 3.8rem;
+    .hl-icon {
+      margin-bottom: 8px;
+      // 各々
+      .ico-logo_mark { width: 74px; }
+      .ico-faci-facility { width: 70px; }
+      .ico-faci-kamoku { width: 58px; }
+      .ico-faci-clock { width: 47px; }
+      .ico-faci-kensa { width: 68px; }
+      .ico-faci-payment { width: 69px; }
+      .ico-faci-setsubi2 { width: 60px; }
+      .ico-faci-doctor { width: 58px; }
+    }
+    small {
+      margin-top: 20px;
+      font-size: 1.7rem;
+    }
+  }
+}
+
+.facility-hl02 {
+  padding-bottom: 8px;
+  font-size: 2.2rem;
+  font-weight: 500;
+  text-align: center;
+  border-bottom: 1px solid #2c6771;
+  .hl-icon {
+    display: block;
+    margin-bottom: 5px;
+    // 各々
+    .ico-faci-setsubi { width: 45px; }
+    .ico-faci-teiin { width: 40px; }
+    .ico-faci-staff { width: 50px; }
+    .ico-faci-price { width: 42px; }
+    .ico-faci-facility { width: 50px; }
+  }
+}
+@include res_min() {
+  .facility-hl02 {
+    padding-bottom: 10px;
+    font-size: 3rem;
+    .hl-icon {
+      margin-bottom: 2px;
+      // 各々
+      .ico-faci-setsubi { width: 55px; }
+      .ico-faci-teiin { width: 46px; }
+      .ico-faci-staff { width: 62px; }
+      .ico-faci-price { width: 48px; }
+      .ico-faci-facility { width: 60px; }
+    }
+  }
+}
+
+// 施設紹介
+.facility-gallery {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 50px 20px;
+  background-color: #f3f1ed;
+  background-image: url(./assets/img/facility/bg-gallery.png);
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: 100px 100px;
+  .gallery-title {
+    margin-top: 30px;
+    line-height: 1.5;
+    & + .photo-gallery {
+      margin-top: 15px;
+    }
+  }
+  .photo-gallery {
+    margin-top: 30px;
+    .gallery-item {
+      &:not(:first-of-type) {
+        margin-top: 15px;
+      }
+    }
+  }
+  .photo-gallery2 {
+    margin-top: 30px;
+    .gallery-item {
+      &:not(:first-of-type) {
+        margin-top: 15px;
+      }
+      p {
+        margin: 0;
+        &::before {
+          content: '■';
+          margin-right: 2px;
+          color: #a79371;
+        }
+      }
+    }
+  }
+}
+@include res_min() {
+  .facility-gallery {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 110px 60px 85px;
+    background-size: 150px 150px;
+    .gallery-title {
+      margin-top: 5px;
+      margin-bottom: -10px;
+      font-size: 1.8rem;
+      & + .photo-gallery {
+        margin-top: 0;
+      }
+      &:not(:first-of-type) {
+        margin-top: 110px;
+      }
+    }
+    .photo-gallery {
+      margin-top: calc(40px - 2%);
+      @include flex(wrap, flex-start, stretch);
+      .gallery-item {
+        flex-basis: calc(33.333% - 1.333%);
+        margin: 2% 2% 0 0;
+        &:not(:first-of-type) {
+          margin-top: 2%;
+        }
+        &:nth-of-type(3n) {
+          margin-right: 0;
+        }
+      }
+    }
+    .photo-gallery2 {
+      margin-top: 25px;
+      @include flex(wrap, flex-start, stretch);
+      @include maxW(1620);
+      .gallery-item {
+        flex-basis: calc(16.666% - 21.6667px);
+        margin: 26px 26px 0 0;
+        &:not(:first-of-type) {
+          margin-top: 26px;
+        }
+        &:nth-of-type(6n) {
+          margin-right: 0;
+        }
+        p {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}
+
+// 詳細リスト
+.facility-detail {
+  margin-top: 60px;
+  & + .facility-detail {
+    margin-top: 0;
+  }
+  .detail-block {
+    margin-bottom: 40px;
+    // txt
+    .detail-block-title {
+      margin-top: 30px;
+      font-size: 2rem;
+      font-weight: 500;
+      text-align: center;
+      span {
+        display: block;
+        font-size: 1.5rem;
+      }
+    }
+    .detail-block-txt {
+      margin-top: 20px;
+    }
+  }
+  & > .facility-hl01 {
+    margin-bottom: 40px;
+  }
+  .detail-block-full {}
+}
+@include res_min() {
+  .facility-detail {
+    margin-top: 95px;
+    & + .facility-detail {
+      margin-top: 0;
+    }
+    @include maxW();
+    @include flex(wrap, flex-start, stretch);
+    .detail-block {
+      margin-bottom: 60px;
+      // txt
+      .detail-block-title {
+        margin-top: 40px;
+        font-size: 2.2rem;
+        text-align: left;
+        span {
+          margin-left: -0.5em;
+          font-size: 2rem;
+        }
+        & + .detail-block-txt {
+          margin-top: 25px;
+        }
+      }
+      .detail-block-txt {
+        margin-top: 40px;
+      }
+    }
+    // カラム別
+    &---full {
+      .detail-block {
+        flex-basis: 100%;
+        margin-bottom: 0;
+      }
+    }
+    &---col2 {
+      .detail-block {
+        flex-basis: calc(50% - 5.555%);
+        margin-right: 11%;
+        &:nth-of-type(2n) { margin-right: 0; }
+      }
+    }
+    &---col3 {
+      .detail-block {
+        flex-basis: calc(33.333% - 3.333%);
+        margin-right: 5%;
+        &:nth-of-type(3n) { margin-right: 0; }
+      }
+    }
+
+    & > .facility-hl01,
+    & > .facility-hl02 {
+      flex: 0 0 100%;
+    }
+    & > .facility-hl01 {
+      margin-bottom: 50px;
+    }
+
+  }
+}
+
+// etc
+.sec---facility-detail-etc {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 50px 20px 0;
+  background-color: #f3f1ed;
+  background-image: url(./assets/img/facility/bg-gallery.png);
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: 100px 100px;
+  .facility-detail {
+    margin-top: 40px;
+  }
+}
+@include res_min() {
+  .sec---facility-detail-etc {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 90px 0 0;
+    .facility-detail {
+      margin-top: 50px;
+      .detail-block {
+        margin-bottom: 90px;
+      }
+      & + .facility-map {
+        margin-top: 0;
+      }
+      &---full {
+        .detail-block {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+// map
+.facility-map {
+  margin-left: -20px;
+  margin-right: -20px;
+  iframe {
+    height: 250px;
+  }
+}
+@include res_min() {
+  .facility-map {
+    margin-top: 40px;
+    margin-left: 0;
+    margin-right: 0;
+    iframe {
+      height: 520px;
+    }
+  }
+}
+
+// 施設フッター
+.facility-footer {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 15% 0;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  .facility-footer-info {
+    width: 80%;
+    margin: 0 auto;
+    &:not(:first-of-type) {
+      margin-top: 20px;
+    }
+    padding: 30px 15px;
+    color: $c-white;
+    line-height: 1.5;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid $c-white;
+    p {
+      margin-bottom: 0;
+    }
+    .facility-name-group {
+      @include flex(wrap, center, center);
+      p {
+        margin: 5px 8px 0;
+      }
+    }
+    .facility-type {
+      font-size: 1.3rem;
+    }
+    .facility-name {
+      margin-top: 5px;
+      font-family: $ff-min;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    .facility-address {
+      margin-top: 25px;
+      font-size: 1.8rem;
+    }
+    .facility-tel {
+      margin-top: 10px;
+      font-size: 2.5rem;
+      font-weight: 500;
+    }
+    .facility-fax {
+      margin-top: 10px;
+    }
+    .facility-other {
+      margin-top: 20px;
+      font-size: 1.8rem;
+      span {
+        display: block;
+      }
+    }
+  }
+  // 個別
+  &---ikedaclinic { background-image: url(./assets/img/facility/ikedaclinic/bg-footer.jpg); }
+  &---nijinomori { background-image: url(./assets/img/facility/nijinomori_komakusanomori/bg-footer-nijinomori.jpg); }
+  &---komakusanomori { background-image: url(./assets/img/facility/nijinomori_komakusanomori/bg-footer-komakusanomori.jpg); }
+  &---terracenomori_suwako { background-image: url(./assets/img/facility/terracenomori_suwako/bg-footer.jpg); }
+  &---shirakomanomori { background-image: url(./assets/img/facility/shirakomanomori/bg-footer.jpg); }
+  &---fukurounomori { background-image: url(./assets/img/facility/fukurounomori/bg-footer.jpg); }
+  &---uguisunomori { background-image: url(./assets/img/facility/uguisunomori/bg-footer.jpg); }
+  &---etc1, &---etc2, &---etc3 {
+    .facility-footer-info {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      .facility-address {
+        margin-top: 0;
+        font-size: 2.2rem;
+      }
+      .facility-other {
+        font-size: 1.6rem;
+        span {
+          display: inline-block;
+          margin: 0 0.5em;
+        }
+      }
+    }
+  }
+  &---etc1 {background-image: url(./assets/img/facility/etc/bg-footer-etc1.jpg); }
+  &---etc2 {background-image: url(./assets/img/facility/etc/bg-footer-etc2.jpg); }
+  &---etc3 {background-image: url(./assets/img/facility/etc/bg-footer-etc3.jpg); }
+}
+@include res_min()  {
+  .facility-footer {
+    max-height: 586px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 120px 5%;
+    background-position: center bottom;
+    @include flex(nowrap, center, stretch);
+    .facility-footer-info {
+      @include flex(nowrap, center, center);
+      flex-direction: column;
+      &.order1 {
+        order: 1;
+        flex: 1 1 28%;
+      }
+      &.order2 {
+        order: 2;
+        flex: 1 1 44%;
+      }
+      &.order3 {
+        order: 3;
+        flex: 1 1 28%;
+      }
+      width: auto;
+      &:not(:first-of-type) {
+        margin-top: 0;
+      }
+      margin: 0 1.5%;
+      padding: 60px 40px;
+      .facility-type {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1em;
+        font-size: 1.8rem;
+      }
+      .facility-name {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: 5px;
+        font-size: 3.5rem;
+      }
+      .facility-address {
+        margin-top: 10px;
+        font-size: 2.5rem;
+      }
+      .facility-tel {
+        margin-top: 12px;
+        font-size: 3.4rem;
+      }
+      .facility-fax {
+        margin-top: 2px;
+        font-size: 2.5rem;
+      }
+      .facility-other {
+        margin-top: 25px;
+        font-size: 1.8rem;
+        span {
+          display: inline-block;
+          margin: 0 0.5em;
+        }
+      }
+    }
+    &---ikedaclinic {
+      .facility-footer-info {
+        margin: 0 3%;
+        padding: 60px 100px;
+      }
+    }
+    &---etc1, &---etc2, &---etc3 {
+      max-height: 270px;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 20px 5%;
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------
+// 池田医院
+// ----------------------------------------------------------------
+// 池田医院のみ：スライダー設定
+.page-header---slider {
+  display: block;
+  background-image: none;
+}
+.slider-content {
+  .slider-item {
+    height: 50vw;
+    background-position: center bottom;
+    background-size: auto 100%;
+    @for $i from 1 through 4 {
+      &:nth-of-type(#{$i}) {
+        background-image: url(./assets/img/facility/ikedaclinic/slider/img-slider-#{$i}.jpg);
+      }
+    }
+  }
+}
+@include res_min() {
+  .slider-content {
+    .slider-item {
+      height: 775px;
+      background-position: center bottom;
+      background-size: cover !important;
+    }
+  }
+}
+
+// 池田医院からのお知らせ
+.sec---ikedaclinic_news {
+  margin: 0 -20px;
+  padding: 50px 20px;
+  background-color: #f3f1ed;
+  .btn---02 {
+    &:link, &:visited {
+      background-color: $c-green1;
+      border: 1px solid $c-green1;
+    }
+  }
+}
+@include res_min() {
+  .sec---ikedaclinic_news {
+    margin: 0;
+    padding: 95px 0 80px;
+    background-color: #f3f1ed;
+  }
+}
+
+// 診療科目
+.department-wrap {
+  margin-top: 20px;
+  background-image: url(./assets/img/facility/ikedaclinic/bg-department.jpg);
+  background-position: center bottom;
+  background-size: cover;
+  .department-info {
+    padding: 20px;
+
+    .department-main {
+      .department-item {
+        margin-bottom: 20px;
+        @include flex(nowrap, flex-start, stretch);
+        flex-direction: column;
+        .item-title {
+          padding: 15px;
+          background-color: #a4c7c2;
+          font-size: 1.8rem;
+          font-weight: 500;
+          color: $c-white;
+          white-space: nowrap;
+          @include flex(nowrap, center, center);
+        }
+        .item-data {
+          padding: 15px;
+          background-color: $c-white;
+        }
+      }
+    }
+
+    .department-other {
+      .department-item {
+        padding: 25px;
+        background-color: rgba(226, 235, 233, 0.76);
+        .item-data {
+        }
+        .item-img {
+          margin-top: 20px;
+        }
+      }
+    }
+
+  }
+}
+@include res_min() {
+  .department-wrap {
+    .department-info {
+      padding: 40px 0;
+      @include maxW();
+      @include flex(nowrap, space-between, stretch);
+
+      .department-main {
+        flex-basis: 59%;
+        @include flex(nowrap, space-between, stretch);
+        flex-direction: column;
+        .department-item {
+          margin-bottom: 40px;
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+          flex-direction: row;
+          .item-title {
+            flex-basis: 30%;
+            padding: 0;
+            font-size: 2rem;
+            @include flex(nowrap, center, center);
+          }
+          .item-data {
+            flex-basis: 70%;
+            padding: 15px 30px 15px 40px;
+          }
+        }
+      }
+
+      .department-other {
+        flex-basis: 36.5%;
+        .department-item {
+          padding: 35px 40px 40px;
+          .item-data {
+          }
+          .item-img {
+            margin-top: 30px;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+// 診療時間
+.shinsatsu-info {
+  margin-top: 20px;
+  padding: 20px 0 30px;
+  background-color: #e2ebe9;
+}
+@include res_min() {
+  .shinsatsu-info {
+    margin-top: 30px;
+    padding: 35px 45px 40px;
+  }
+}
+// table
+.consultation {
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-bottom: 1px solid #808080;
+  th, td {
+    padding: 10px 5px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    border-top: 1px solid #808080;
+  }
+  tr {
+    th:not(:first-of-type) { border-left: 1px solid #808080; }
+    td { border-left: 1px solid #808080; }
+  }
+  thead {
+    th {
+      color: $c-white;
+      background-color: #8bb8b1;
+    }
+  }
+  tbody {
+    th, td {
+      background-color: $c-white;
+    }
+  }
+  .cell-l {
+    width: 4em;
+  }
+  .cell-s {
+  }
+}
+@include res_min() {
+  .consultation {
+    width: 100%;
+    th, td {
+      padding: 12px 5px;
+      font-size: 2rem;
+    }
+    .cell-l {
+      width: 24%;
+      min-width: 230px;
+    }
+  }
+}
+// other
+.shinsatsu-info-other {
+  padding: 20px 25px 0;
+  .info-doctor {
+    p {
+      margin-bottom: 0.5em;
+      line-height: 1.5;
+      &:last-of-type {
+        margin-top: 1.5em;
+      }
+    }
+  }
+  .info-notice {
+    margin-top: 1.5em;
+    li {
+      padding-left: 1.2em;
+      line-height: 1.5;
+      &:not(:first-of-type) {
+        margin-top: 0.5em;
+      }
+      position: relative;
+      &::before {
+        content: '●';
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+}
+@include res_min() {
+  .shinsatsu-info-other {
+    padding: 0;
+    margin-top: 40px;
+    @include flex(nowrap, flex-start, stretch);
+    .info-doctor {
+      flex-basis: 40%;
+      @include flex(nowrap, flex-end, stretch);
+      flex-direction: column;
+      p {
+        margin-bottom: 1em;
+        line-height: 1.5;
+        &:last-of-type {
+          margin-top: auto;
+          margin-bottom: 0;
+          margin-left: -0.5em;
+        }
+      }
+    }
+    .info-notice {
+      margin-top: 0;
+      li {
+        &:not(:first-of-type) {
+          margin-top: 0.4em;
+        }
+      }
+    }
+  }
+}
+
+// 実施できる検査 & お支払い
+.about-more-wrap {
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+@include res_min() {
+  .about-more-wrap {
+    margin-top: 70px;
+    padding-bottom: 90px;
+    @include flex(nowrap, space-between, stretch);
+  }
+}
+// 実施できる検査
+.inspection-item {
+  .item-list {
+    margin-top: 30px;
+    .list-type-circle {
+      margin-top: 0.8em;
+    }
+  }
+  p {
+    margin-top: 1em;
+  }
+}
+@include res_min() {
+  .inspection-item {
+    flex-basis: calc(55.555% + 2em);
+    .item-list {
+      margin-top: 40px;
+      .list-type-circle {
+        margin-top: 0;
+        @include flex(wrap, space-between, stretch);
+        li {
+          flex-basis: 50%;
+          margin-bottom: 0.1em;
+          padding-right: 1em;
+        }
+      }
+    }
+    p {
+    }
+  }
+}
+// お支払い
+.payment {
+  margin-top: 50px;
+  p {
+    margin-top: 20px;
+    br {
+      display: none;
+    }
+  }
+  .payment-card {
+    padding: 20px 30px;
+    margin: 35px auto 0;
+    max-width: 400px;
+    border: 1px solid #a79371;
+    position: relative;
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border: 15px solid transparent;
+      border-bottom: 20px solid #a79371;
+      position: absolute;
+      left: 50%;
+      top: -35px;
+      transform: translateX(-50%);
+    }
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border: 15px solid transparent;
+      border-bottom: 20px solid #fff;
+      position: absolute;
+      left: 50%;
+      top: -33px;
+      transform: translateX(-50%);
+    }
+  }
+}
+@include res_min() {
+  .payment {
+    flex-basis: 36%;
+    margin-top: 14px;
+    p {
+      margin-top: 40px;
+      br {
+        display: block;
+      }
+    }
+    .payment-card {
+      padding: 20px;
+      margin: 30px auto 0;
+      max-width: none;
+      text-align: center;
+      img {
+        max-width: 370px;
+      }
+    }
+  }
+}
+
+// 医師紹介
+.doctor-list {
+  margin-top: 30px;
+  padding: 0 20px 60px;
+  .doctor {
+    line-height: 1.5;
+    text-align: center;
+    &:not(:first-of-type) {
+      margin-top: 30px;
+    }
+    .doctor-img {
+    }
+    .doctor-position {
+      margin-top: 10px;
+      font-family: $ff-min;
+      font-size: 1.5rem;
+    }
+    .doctor-name {
+      max-width: 60%;
+      margin: 0 auto;
+      padding: 0 15px 10px;
+      font-family: $ff-min;
+      font-size: 2.5rem;
+      font-weight: 500;
+      border-bottom: 1px solid #a79371;
+    }
+    .doctor-info {
+      margin-top: 10px;
+    }
+  }
+}
+@include res_min() {
+  .doctor-list {
+    margin-top: 40px;
+    padding: 0 3% 100px;
+    @include flex(nowrap, flex-start, stretch);
+    .doctor {
+      flex-basis: calc(33.333% - 1.333%);
+      margin-right: 2%;
+      &:not(:first-of-type) {
+        margin-top: 0;
+      }
+      &:nth-of-type(3) {
+        margin-right: 0;
+      }
+      .doctor-img {
+      }
+      .doctor-position {
+        margin-top: 25px;
+        font-size: 1.8rem;
+      }
+      .doctor-name {
+        max-width: 52%;
+        padding: 0 10px 12px;
+        font-size: 3rem;
+      }
+      .doctor-info {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------
+// 採用情報
+// ----------------------------------------------------------------
+.sec---recruit {
+}
+.recruit-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+.recruit-list {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  .list-item {
+    padding: 35px 0 30px;
+    &:not(:last-of-type) {
+      border-bottom: 1px dashed #808080;
+    }
+    .post-title {
+      margin-top: 0;
+      font-size: 2.2rem;
+      font-weight: 500;
+      text-align: center;
+    }
+    .post-body {
+      p {
+        line-height: 1.7;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .pdf-link {
+      line-height: 1.7;
+      &:link, &:visited {
+        color: $c-blue1;
+        text-decoration: none;
+      }
+      &:hover, &:active {
+        opacity: 0.7;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+@include res_min() {
+  .sec---recruit {
+
+  }
+  .recruit-title {
+    font-size: 3.8rem;
+  }
+  .recruit-list {
+    margin-top: 70px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+    .list-item {
+      padding: 45px 0;
+      @include flex(nowrap, flex-start, stretch);
+      .post-title {
+        flex-basis: 160px;
+        font-weight: 600;
+        text-align: left;
+      }
+      .post-body {
+        flex-basis: calc(100% - 160px);
+        margin-top: 0;
+        padding-left: 15px;
+        p {}
+      }
+      .pdf-link {}
+    }
+
+    // 背景の画像
+    &::before, &::after {
+      content: '';
+      width: 365px;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: 100%;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+    &::before {
+      left: -415px;
+      background-image: url(./assets/img/recruit/bg-recruit-01.jpg);
+    }
+    &::after {
+      right: -415px;
+      background-image: url(./assets/img/recruit/bg-recruit-02.jpg);
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------
+// プライバシーポリシー
+// ----------------------------------------------------------------
+.sec---privacy {
+  counter-reset: cnt-pp;
+}
+
+.pp-intro {
+  margin-top: 40px;
+}
+@include res_min() {
+  .pp-intro {
+    margin-top: 60px;
+  }
+}
+
+.pp-block {
+  margin-top: 40px;
+	.pp-title {
+    padding-bottom: 0.3em;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #886239;
+    border-bottom: 1px solid #886239;
+    &::before {
+      counter-increment: cnt-pp;
+      content: counter(cnt-pp);
+      margin-right: 0.2em;
+    }
+	}
+	.list-type-circle {
+    margin: 1em 0 0 1em;
+    li {
+      margin-top: 0.4em;
+    }
+	}
+}
+@include res_min() {
+  .pp-block {
+    margin-top: 50px;
+    .pp-title {
+      margin-bottom: 25px;
+      font-size: 3rem;
+    }
+    .list-type-circle {
+      margin: 1em 0 0 1em;
+      li {
+        margin-top: 0.4em;
+      }
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------
+// 送信完了
+// ----------------------------------------------------------------
+.thanks-title {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.page-thanks {
+  .btn-wrap {
+    margin: 32px auto;
+  }
+}
+@include res_min() {
+  .thanks-title {
+    font-size: 2.8rem;
+    margin-bottom: 48px;
+  }
+  .page-thanks {
+    .btn-wrap {
+      margin: 64px auto 48px;
+    }
+  }
+}
