@@ -12,6 +12,18 @@
   </div>
   <div class="copyright">Copyright &copy;<br> 医療法人こまくさ会・社会福祉法人こまくさ福祉会 <br>all right reserved.</div>
 </footer>
+
+<?php // Custom Button: 202201 ?>
+<?php
+  $cbtn_status = get_field('cf_c-button-status');
+  $cbtn_title = get_field('cf_c-button-title');
+  $cbtn_link = get_field('cf_c-button-link');
+  $cbtn_color = get_field('cf_c-button-color');
+  if ( $cbtn_status ){
+    echo '<a href="' . $cbtn_link . '" class="custom-button custom-button---' . $cbtn_color . '">' . $cbtn_title . '</a>';
+  }
+?>
+
 <a href="#top" class="pagetop"></a>
 <?php wp_footer(); ?>
 <?php // ie11 object-fit 対応

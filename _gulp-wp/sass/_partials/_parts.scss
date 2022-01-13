@@ -705,6 +705,45 @@
 
 
 // ----------------------------------------------------------------
+// カスタムボタン: // Custom Button: 202201
+// ダッシュボードよりクライアントが設定できるボタン
+// ----------------------------------------------------------------
+.custom-button {
+  position: fixed;
+  right: 0;
+  top: 24%;
+  z-index: 9999;
+  padding: 18px 13px;
+  background-color: #000;
+  writing-mode: vertical-rl;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .1em;
+  white-space: nowrap;
+  &:link, &:visited {
+    color: #fff;
+  }
+  &:hover, &:active {
+    opacity: 0.9;
+    text-decoration: none;
+  }
+
+  // 個別
+  &---color1 { background-color: #6db6bd; }
+  &---color2 { background-color: #a89471; }
+  &---color3 { background-color: #cf7e9f; }
+}
+@include res_min() {
+  .custom-button {
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 38px 23px;
+  }
+}
+
+
+// ----------------------------------------------------------------
 // TELリンク
 // ----------------------------------------------------------------
 .tel-link {
