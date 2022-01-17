@@ -708,14 +708,57 @@
 // カスタムボタン: // Custom Button: 202201
 // ダッシュボードよりクライアントが設定できるボタン
 // ----------------------------------------------------------------
+
+// ↓ ボタン常時右端に表示バージョン
+// .custom-button {
+//   position: fixed;
+//   right: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   z-index: 9999;
+//   display: flex;
+//   align-items: center;
+//   padding: 18px 0;
+//   width: 40px;
+//   background-color: #000;
+//   writing-mode: vertical-lr;
+//   font-size: 1.5rem;
+//   font-weight: 500;
+//   line-height: 1;
+//   letter-spacing: .1em;
+//   white-space: nowrap;
+//   &:link, &:visited {
+//     color: #fff;
+//   }
+//   &:hover, &:active {
+//     opacity: 0.9;
+//     text-decoration: none;
+//   }
+
+//   // 個別
+//   &---color1 { background-color: #6db6bd; }
+//   &---color2 { background-color: #a89471; }
+//   &---color3 { background-color: #cf7e9f; }
+// }
+// @include res_min() {
+//   .custom-button {
+//     width: 60px;
+//     padding: 38px 23px;
+//   }
+// }
+
+// ↓ ボタン　スマホ時は下部、PC時は右に表示バージョン
 .custom-button {
   position: fixed;
-  right: 0;
-  top: 24%;
+  left: 0;
+  bottom: 0;
   z-index: 9999;
-  padding: 18px 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  width: 100%;
   background-color: #000;
-  writing-mode: vertical-rl;
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1;
@@ -736,9 +779,14 @@
 }
 @include res_min() {
   .custom-button {
+    width: 60px;
+    left: auto;
+    right: 0;
     top: 50%;
+    bottom: auto;
     transform: translateY(-50%);
     padding: 38px 23px;
+    writing-mode: vertical-lr;
   }
 }
 
