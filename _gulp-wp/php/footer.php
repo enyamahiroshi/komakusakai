@@ -20,7 +20,7 @@
   $cbtn_link = get_field('cf_c-button-link');
   $cbtn_color = get_field('cf_c-button-color');
   if ( $cbtn_status ){
-    echo '<a href="' . $cbtn_link . '" class="custom-button custom-button---' . $cbtn_color . '">' . $cbtn_title . '</a>';
+    echo '<a href="' . $cbtn_link . '" class="custom-button custom-button---' . $cbtn_color . '" target="_blank" rel="noopener noreferrer">' . $cbtn_title . '</a>';
   }
 ?>
 
